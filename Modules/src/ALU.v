@@ -37,6 +37,8 @@ module ALU(
 		out = a|b;
 		else if (func == 3'd4)
 		out = ~(a|b);
+		else if (func == 3'd5) 
+		out = ((a<b) ? 1:0); // add the SLT instruction 
 		else
 		out = 0;
    end

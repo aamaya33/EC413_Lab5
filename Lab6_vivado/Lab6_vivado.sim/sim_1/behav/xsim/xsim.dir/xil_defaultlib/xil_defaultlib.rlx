@@ -1,0 +1,8 @@
+0.7
+2020.2
+May 22 2024
+19:03:11
+C:/Users/amaya/Documents/GitHub/EC413_Lab5/Lab6_vivado/Lab6_vivado.sim/sim_1/behav/xsim/glbl.v,1708598507,verilog,,,,glbl,,,,,,,,
+C:/Users/amaya/Documents/GitHub/EC413_Lab5/Lab6_vivado/Lab6_vivado.srcs/sim_1/new/SLT_tb.v,1730153260,verilog,,,,SLT_tb,,,,,,,,
+C:/Users/amaya/Documents/GitHub/EC413_Lab5/Modules/src/ALU.v,1730152646,verilog,,C:/Users/amaya/Documents/GitHub/EC413_Lab5/Modules/src/ALU_control.v,,ALU,,,,,,,,
+C:/Users/amaya/Documents/GitHub/EC413_Lab5/Modules/src/ALU_control.v,1730153182,verilog,,C:/Users/amaya/Documents/GitHub/EC413_Lab5/Lab6_vivado/Lab6_vivado.srcs/sim_1/new/SLT_tb.v,,ALU_control,,,,,,,,
