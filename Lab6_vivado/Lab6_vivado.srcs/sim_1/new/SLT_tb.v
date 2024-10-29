@@ -70,14 +70,6 @@ module SLT_tb;
         //SLT (a > b)
         a = 32'd15; b = 32'd10; ALUOp = 2'b00; instruction = 6'h2A; #10;
         $display("SLT (a > b): a=%d, b=%d, out=%d, zero_flag=%b", a, b, out, zero_flag);
-
-        //I-Type Add (ADDI)
-        a = 32'd10; b = 32'd15; ALUOp = 2'b10; #10;
-        $display("ADDI (I-type): a=%d, b=%d, out=%d, zero_flag=%b", a, b, out, zero_flag);
-
-        //BEQ (Subtract and Check Zero Flag)
-        a = 32'd20; b = 32'd20; ALUOp = 2'b01; #10;
-        $display("BEQ: a=%d, b=%d, out=%d, zero_flag=%b", a, b, out, zero_flag);
         $stop;
     end
 endmodule

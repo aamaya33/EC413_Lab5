@@ -50,6 +50,15 @@ always @(*) begin
 	   ALUSrc = 1'b1;
 		MemWrite = 1'b0;
 		RegWrite = 1'b1;
+		end else if (instruction == 6'b00_1000) begin //addi 
+		ALUOp = 2'b10; //add for I-Type
+        MemRead = 1'b0;
+        MemtoReg = 1'b0;
+        RegDst = 1'b0; //set to 0 since using immidiate (I-Type) 
+        Branch = 1'b0;
+        ALUSrc = 1'b1; //force ALU to take immidiate as input 
+        MemWrite = 1'b0;
+        RegWrite = 1'b1; //write back to register
 		end else begin
 		ALUOp = 2'b00;
 		MemRead = 1'b0;
