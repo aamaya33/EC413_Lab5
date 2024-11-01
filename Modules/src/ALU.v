@@ -6,7 +6,8 @@ module ALU(
     b,
 	 func,
     out,
-    zero_flag
+    zero_flag,
+    not_zero
     );
 
 
@@ -17,12 +18,19 @@ module ALU(
 	 input [2:0] func;
     output reg [size-1:0] out;
     output reg zero_flag;
-	 
+	output reg not_zero; 
 	 	
 	always @(*) begin
 	case (out) 
 	0: zero_flag = 1'b1;
 	default: zero_flag = 1'b0;
+	endcase
+	end
+	
+	always @(*) begin
+	case (out) 
+	0: not_zero = 1'b0;
+	default: not_zero = 1'b1;
 	endcase
 	end
 	

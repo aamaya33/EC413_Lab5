@@ -9,7 +9,8 @@ module control(
 		output reg Branch, 
 		output reg ALUSrc,
 		output reg MemWrite,
-		output reg RegWrite
+		output reg RegWrite,
+		output reg jump
 		);
 
 
@@ -23,6 +24,7 @@ always @(*) begin
 	   ALUSrc = 1'b0;
 		MemWrite = 1'b0;
 		RegWrite = 1'b1;
+		jump = 1'b0;
 		end else if (instruction == 6'b00_0100) begin   //branch
 		ALUOp = 2'b01;
 		MemRead = 1'b0;
@@ -32,6 +34,7 @@ always @(*) begin
 	   ALUSrc = 1'b0;
 		MemWrite = 1'b0;
 		RegWrite = 1'b0;
+		jump = 1'b0;
 		end else if (instruction == 6'b10_1011) begin   // sw
 		ALUOp = 2'b10;
 		MemRead = 1'b0;
@@ -41,6 +44,7 @@ always @(*) begin
 	   ALUSrc = 1'b1;
 		MemWrite = 1'b1;
 		RegWrite = 1'b0;
+		jump = 1'b0;
 		end else if (instruction == 6'b10_0011) begin   // lw
 		ALUOp = 2'b10;
 		MemRead = 1'b1;
@@ -50,6 +54,7 @@ always @(*) begin
 	   ALUSrc = 1'b1;
 		MemWrite = 1'b0;
 		RegWrite = 1'b1;
+		jump = 1'b0;
 		end else if (instruction == 6'b00_1000) begin //addi 
 		ALUOp = 2'b10; //add for I-Type
         MemRead = 1'b0;
@@ -59,15 +64,27 @@ always @(*) begin
         ALUSrc = 1'b1; //force ALU to take immidiate as input 
         MemWrite = 1'b0;
         RegWrite = 1'b1; //write back to register
+        jump = 1'b0;
+        end else if (instruction == 6'b00_0010) begin //j
+        ALUOp = 2'b11;
+        MemRead = 1'b0;
+        MemtoReg = 1'b0;
+        RegDst = 1'b0;
+        Branch = 1'b0;
+        ALUSrc = 1'b0;
+        MemWrite = 1'b0;
+        RegWrite = 1'b0;
+        jump = 1'b1;
 		end else begin
 		ALUOp = 2'b00;
 		MemRead = 1'b0;
 		MemtoReg = 1'b0;
 		RegDst = 1'b0;
-      Branch = 1'b0;		
-	   ALUSrc = 1'b0;
+        Branch = 1'b0;		
+	    ALUSrc = 1'b0;
 		MemWrite = 1'b0;
 		RegWrite = 1'b0;
+		jump = 1'b0;
 		end
 	
 	
