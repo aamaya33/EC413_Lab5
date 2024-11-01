@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="295.300 ns"></ZoomStartTime>
-      <ZoomEndTime time="364.301 ns"></ZoomEndTime>
-      <Cursor1Time time="320.000 ns"></Cursor1Time>
+      <ZoomStartTime time="311.330 ns"></ZoomStartTime>
+      <ZoomEndTime time="378.981 ns"></ZoomEndTime>
+      <Cursor1Time time="289.180 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="194"></NameColumnWidth>
-      <ValueColumnWidth column_width="147"></ValueColumnWidth>
+      <ValueColumnWidth column_width="139"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="28" />
+   <WVObjectSize size="20" />
    <wvobject fp_name="/tb_cpu/rst" type="logic">
       <obj_property name="ElementShortName">rst</obj_property>
       <obj_property name="ObjectShortName">rst</obj_property>
@@ -84,55 +84,23 @@
       <obj_property name="ElementShortName">jump</obj_property>
       <obj_property name="ObjectShortName">jump</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_cpu/uut/PC_in" type="array">
-      <obj_property name="ElementShortName">PC_in[31:0]</obj_property>
-      <obj_property name="ObjectShortName">PC_in[31:0]</obj_property>
+   <wvobject fp_name="/tb_cpu/uut/ALU/a" type="array">
+      <obj_property name="ElementShortName">a[31:0]</obj_property>
+      <obj_property name="ObjectShortName">a[31:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_cpu/uut/new_jumpInstr" type="array">
-      <obj_property name="ElementShortName">new_jumpInstr[31:0]</obj_property>
-      <obj_property name="ObjectShortName">new_jumpInstr[31:0]</obj_property>
+   <wvobject fp_name="/tb_cpu/uut/ALU/b" type="array">
+      <obj_property name="ElementShortName">b[31:0]</obj_property>
+      <obj_property name="ObjectShortName">b[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_cpu/uut/PC_out" type="array">
-      <obj_property name="ElementShortName">PC_out[31:0]</obj_property>
-      <obj_property name="ObjectShortName">PC_out[31:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_cpu/uut/J_shift/imm" type="array">
-      <obj_property name="ElementShortName">imm[25:0]</obj_property>
-      <obj_property name="ObjectShortName">imm[25:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_cpu/uut/J_shift/imm_left" type="array">
-      <obj_property name="ElementShortName">imm_left[27:0]</obj_property>
-      <obj_property name="ObjectShortName">imm_left[27:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_cpu/uut/concat_j/PC" type="array">
-      <obj_property name="ElementShortName">PC[3:0]</obj_property>
-      <obj_property name="ObjectShortName">PC[3:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_cpu/uut/concat_j/shifted_imm" type="array">
-      <obj_property name="ElementShortName">shifted_imm[27:0]</obj_property>
-      <obj_property name="ObjectShortName">shifted_imm[27:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_cpu/uut/concat_j/out" type="array">
-      <obj_property name="ElementShortName">out[31:0]</obj_property>
-      <obj_property name="ObjectShortName">out[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_cpu/uut/J_mux/sel" type="logic">
-      <obj_property name="ElementShortName">sel</obj_property>
-      <obj_property name="ObjectShortName">sel</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_cpu/uut/J_mux/in_0" type="array">
-      <obj_property name="ElementShortName">in_0[31:0]</obj_property>
-      <obj_property name="ObjectShortName">in_0[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_cpu/uut/J_mux/in_1" type="array">
-      <obj_property name="ElementShortName">in_1[31:0]</obj_property>
-      <obj_property name="ObjectShortName">in_1[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_cpu/uut/J_mux/out" type="array">
+   <wvobject fp_name="/tb_cpu/uut/ALU/out" type="array">
       <obj_property name="ElementShortName">out[31:0]</obj_property>
       <obj_property name="ObjectShortName">out[31:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_cpu/uut/ALU/zero_flag" type="logic">
+      <obj_property name="ElementShortName">zero_flag</obj_property>
+      <obj_property name="ObjectShortName">zero_flag</obj_property>
    </wvobject>
 </wave_config>
