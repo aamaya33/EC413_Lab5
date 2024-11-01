@@ -51,11 +51,12 @@ module cpu(
 	 wire MemtoReg;
 	 wire RegDst;
 	 wire Branch; 
+	 wire BNE; 
 	 wire ALUSrc;
 	 wire MemWrite;
 	 wire RegWrite;
 	 wire jump; 
-    control Control(instruction [31:26], ALUOp, MemRead, MemtoReg, RegDst, Branch, ALUSrc, MemWrite, RegWrite, jump); 
+    control Control(instruction [31:26], ALUOp, MemRead, MemtoReg, RegDst, Branch, BNE, ALUSrc, MemWrite, RegWrite, jump); 
 	 
 	 
 	 
@@ -78,7 +79,7 @@ module cpu(
 	 wire [2:0] ALU_function;
 	 mux #(32) ALU_Input_2_Mux (ALUSrc, read_data_2, immediate, ALU_input_2);
 	 ALU_control ALU_Control(instruction[5:0], ALUOp, ALU_function);
-    ALU ALU(read_data_1, ALU_input_2, ALU_function, ALUOut, zero_flag);
+    ALU ALU(read_data_1, ALU_input_2, ALU_function, ALUOut, zero_flag, not_zero);
 	 
 	 
 	 Memory Data_Memory(ALUOut, read_data_2, MemOut, MemRead, MemWrite, clk);
@@ -103,7 +104,7 @@ module cpu(
 	 
 	 wire[31:0] PC_branch_mux_out;
 	 wire PCSrc;
-	 and Branch_And (PCSrc, Branch, zero_flag);
+	 assign PCSrc = Branch & (zero_flag ^ BNE);
 	 mux #(32) PC_Input_MUX (PCSrc, PC_plus_4, Branch_target_address, PC_branch_mux_out);
 	 
 	 wire [27:0] shifted_imm;

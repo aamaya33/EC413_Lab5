@@ -3,104 +3,70 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="tb_cpu_behav.wdb" id="1">
+      <db_ref path="BNE_tb_behav.wdb" id="1">
          <top_modules>
+            <top_module name="BNE_tb" />
             <top_module name="glbl" />
-            <top_module name="tb_cpu" />
          </top_modules>
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="311.330 ns"></ZoomStartTime>
-      <ZoomEndTime time="378.981 ns"></ZoomEndTime>
-      <Cursor1Time time="289.180 ns"></Cursor1Time>
+      <ZoomStartTime time="217.518 ns"></ZoomStartTime>
+      <ZoomEndTime time="290.119 ns"></ZoomEndTime>
+      <Cursor1Time time="234.518 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="194"></NameColumnWidth>
-      <ValueColumnWidth column_width="139"></ValueColumnWidth>
+      <ValueColumnWidth column_width="111"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="20" />
-   <wvobject fp_name="/tb_cpu/rst" type="logic">
+   <WVObjectSize size="12" />
+   <wvobject fp_name="/BNE_tb/rst" type="logic">
       <obj_property name="ElementShortName">rst</obj_property>
       <obj_property name="ObjectShortName">rst</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_cpu/clk" type="logic">
+   <wvobject fp_name="/BNE_tb/clk" type="logic">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_cpu/initialize" type="logic">
+   <wvobject fp_name="/BNE_tb/initialize" type="logic">
       <obj_property name="ElementShortName">initialize</obj_property>
       <obj_property name="ObjectShortName">initialize</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_cpu/instruction_initialize_data" type="array">
+   <wvobject fp_name="/BNE_tb/instruction_initialize_data" type="array">
       <obj_property name="ElementShortName">instruction_initialize_data[31:0]</obj_property>
       <obj_property name="ObjectShortName">instruction_initialize_data[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_cpu/instruction_initialize_address" type="array">
+   <wvobject fp_name="/BNE_tb/instruction_initialize_address" type="array">
       <obj_property name="ElementShortName">instruction_initialize_address[31:0]</obj_property>
       <obj_property name="ObjectShortName">instruction_initialize_address[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_cpu/uut/instruction" type="array">
-      <obj_property name="ElementShortName">instruction[31:0]</obj_property>
-      <obj_property name="ObjectShortName">instruction[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_cpu/PC" type="array">
+   <wvobject fp_name="/BNE_tb/PC" type="array">
       <obj_property name="ElementShortName">PC[31:0]</obj_property>
       <obj_property name="ObjectShortName">PC[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_cpu/uut/Control/ALUOp" type="array">
-      <obj_property name="ElementShortName">ALUOp[1:0]</obj_property>
-      <obj_property name="ObjectShortName">ALUOp[1:0]</obj_property>
+   <wvobject fp_name="/BNE_tb/instruction" type="array">
+      <obj_property name="ElementShortName">instruction[31:0]</obj_property>
+      <obj_property name="ObjectShortName">instruction[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_cpu/uut/Control/MemRead" type="logic">
-      <obj_property name="ElementShortName">MemRead</obj_property>
-      <obj_property name="ObjectShortName">MemRead</obj_property>
+   <wvobject fp_name="/BNE_tb/uut/Control/BNE" type="logic">
+      <obj_property name="ElementShortName">BNE</obj_property>
+      <obj_property name="ObjectShortName">BNE</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_cpu/uut/Control/MemtoReg" type="logic">
-      <obj_property name="ElementShortName">MemtoReg</obj_property>
-      <obj_property name="ObjectShortName">MemtoReg</obj_property>
+   <wvobject fp_name="/BNE_tb/uut/PC_in" type="array">
+      <obj_property name="ElementShortName">PC_in[31:0]</obj_property>
+      <obj_property name="ObjectShortName">PC_in[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_cpu/uut/Control/RegDst" type="logic">
-      <obj_property name="ElementShortName">RegDst</obj_property>
-      <obj_property name="ObjectShortName">RegDst</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_cpu/uut/Control/Branch" type="logic">
-      <obj_property name="ElementShortName">Branch</obj_property>
-      <obj_property name="ObjectShortName">Branch</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_cpu/uut/Control/ALUSrc" type="logic">
-      <obj_property name="ElementShortName">ALUSrc</obj_property>
-      <obj_property name="ObjectShortName">ALUSrc</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_cpu/uut/Control/MemWrite" type="logic">
-      <obj_property name="ElementShortName">MemWrite</obj_property>
-      <obj_property name="ObjectShortName">MemWrite</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_cpu/uut/Control/RegWrite" type="logic">
-      <obj_property name="ElementShortName">RegWrite</obj_property>
-      <obj_property name="ObjectShortName">RegWrite</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_cpu/uut/Control/jump" type="logic">
-      <obj_property name="ElementShortName">jump</obj_property>
-      <obj_property name="ObjectShortName">jump</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_cpu/uut/ALU/a" type="array">
+   <wvobject fp_name="/BNE_tb/uut/ALU/a" type="array">
       <obj_property name="ElementShortName">a[31:0]</obj_property>
       <obj_property name="ObjectShortName">a[31:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_cpu/uut/ALU/b" type="array">
+   <wvobject fp_name="/BNE_tb/uut/ALU/b" type="array">
       <obj_property name="ElementShortName">b[31:0]</obj_property>
       <obj_property name="ObjectShortName">b[31:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_cpu/uut/ALU/out" type="array">
+   <wvobject fp_name="/BNE_tb/uut/ALU/out" type="array">
       <obj_property name="ElementShortName">out[31:0]</obj_property>
       <obj_property name="ObjectShortName">out[31:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_cpu/uut/ALU/zero_flag" type="logic">
-      <obj_property name="ElementShortName">zero_flag</obj_property>
-      <obj_property name="ObjectShortName">zero_flag</obj_property>
    </wvobject>
 </wave_config>

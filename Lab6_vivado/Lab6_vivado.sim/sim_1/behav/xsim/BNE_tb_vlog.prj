@@ -14,7 +14,7 @@ verilog xil_defaultlib  \
 "../../../../../Modules/src/nbit_register_file.v" \
 "../../../../../Modules/src/shift_left_2.v" \
 "../../../../../Modules/src/sign_extend.v" \
-"../../../../../Modules/sim/tb_cpu.v" \
+"../../../../Lab6_vivado.srcs/sim_1/new/BNE_tb.v" \
 
 # compile glbl module
 verilog xil_defaultlib "glbl.v"

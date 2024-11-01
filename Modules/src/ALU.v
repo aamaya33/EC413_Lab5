@@ -21,18 +21,17 @@ module ALU(
 	output reg not_zero; 
 	 	
 	always @(*) begin
-	case (out) 
-	0: zero_flag = 1'b1;
-	default: zero_flag = 1'b0;
-	endcase
-	end
-	
-	always @(*) begin
-	case (out) 
-	0: not_zero = 1'b0;
-	default: not_zero = 1'b1;
-	endcase
-	end
+    case (out)
+        0: begin
+            zero_flag = 1'b1;
+            not_zero = 1'b0;
+        end
+        default: begin
+            zero_flag = 1'b0;
+            not_zero = 1'b1;
+        end
+    endcase
+    end 
 	
 	always @(*) begin
 		if (func == 3'd0) 

@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 10/28/2024 06:04:33 PM
+// Create Date: 11/01/2024 01:00:46 PM
 // Design Name: 
-// Module Name: SLT_tb
+// Module Name: BNE_tb
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,7 +20,8 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module SLT_tb;
+module BNE_tb;
+
 	// Inputs
 	reg rst;
 	reg clk;
@@ -58,33 +59,28 @@ module SLT_tb;
 		#100;
 
 		// Initialize instruction memory with test instructions
-		instruction_initialize_address = 0;
-		instruction_initialize_data = 32'b000000_00000_00010_00001_00000_100000;      // ADD R1, R0, R2
-		#20;
-		instruction_initialize_address = 4;
-		instruction_initialize_data = 32'b000000_00100_00100_01000_00000_100010;      // SUB R8, R4, R4
-		#20;
-		instruction_initialize_address = 8;
-		instruction_initialize_data = 32'b000000_00101_00110_00111_00000_100101;      // OR R7, R5, R6
-		#20;
-		instruction_initialize_address = 12;
-		instruction_initialize_data = 32'b100011_00000_01100_00000_00000_001100;      // LW R12, 12(R0)
-		#20;	
-//		instruction_initialize_address = 16;
-//		instruction_initialize_data = 32'b000100_00000_00000_11111_11111_111111;      // BEQ R0, R0, -1
-		#20;
-		instruction_initialize_address = 16;
-		instruction_initialize_data = 32'b001000_00110_00110_00000_00000_001010;      // ADDI R6, R6, 10
-		#20;
-		instruction_initialize_address = 20;
-		instruction_initialize_data = 32'b000000_10000_11111_11111_00000_101010;      // SLT R31, R16, R31 
-		
-		//the cpu decides to not work so i will just switch these test cases aroudn to demo in lab 
-		#20;
-		instruction_initialize_address = 24;
-		instruction_initialize_data = 32'b000000_11111_10000_11111_00000_101010;      // SLT R31, R31, R16 
-		
+		// Set up registers to have values for BNE testing
 
+		instruction_initialize_address = 0;
+		instruction_initialize_data = 32'b000000_00000_00010_00001_00000_100000;      // ADD R1, R0, R2 (R1 = R0 + R2 = 0 + 2)
+		#20;
+
+		instruction_initialize_address = 4;
+		instruction_initialize_data = 32'b000000_00000_00011_00010_00000_100000;      // ADD R2, R0, R3 (R2 = R0 + R3 = 0 + 3)
+		#20;
+
+		instruction_initialize_address = 8;
+		instruction_initialize_data = 32'b000101_00001_00010_00000_00000_000001;      // BNE R1, R2, offset=1 (should branch since R1 != R2)
+		#20;
+
+		instruction_initialize_address = 16;
+		instruction_initialize_data = 32'b000000_00010_00000_00010_00000_100000;      // ADD R2, R0, R2 (reset R2 to 0)
+		#20;
+
+		instruction_initialize_address = 20;
+		instruction_initialize_data = 32'b000101_00001_00001_00000_00000_000001;      // BNE R1, R1, offset=1 (should not branch since R1 == R1)
+		#20;
+		
 		// Finish instruction initialization
 		initialize = 0;
 		#20;
@@ -94,4 +90,6 @@ module SLT_tb;
 	// Clock generation
 	always
 		#5 clk = ~clk;
+
 endmodule
+
