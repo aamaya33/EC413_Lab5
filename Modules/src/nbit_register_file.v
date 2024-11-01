@@ -1,5 +1,5 @@
 module nbit_register_file(
-								  write_data, 
+								  write_data_in, 
                           read_data_1, 
 								  read_data_2, 
                           read_sel_1, 
@@ -16,7 +16,7 @@ module nbit_register_file(
 	 parameter select_width_2 = 2**select_width;   // do not specify this when using module
                           
     input                                       clk, RegWrite;
-    input           [data_width-1:0]            write_data;
+    input           [data_width-1:0]            write_data_in;
     input           [select_width-1:0]          read_sel_1, read_sel_2, write_address;
     output		     [data_width-1:0]            read_data_1, read_data_2;
     
@@ -28,7 +28,7 @@ module nbit_register_file(
     
     always @ (posedge clk) begin
         if (RegWrite) 
-            register_file[write_address] <= write_data;
+            register_file[write_address] <= write_data_in;
     end
 	 
 	 // for loop initializes all registers, no need to rst

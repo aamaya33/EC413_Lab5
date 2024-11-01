@@ -6,6 +6,7 @@ verilog xil_defaultlib  \
 "../../../../../Modules/src/InstrMem.v" \
 "../../../../Lab6_vivado.srcs/sources_1/new/J_Shift.v" \
 "../../../../Lab6_vivado.srcs/sources_1/new/J_concat.v" \
+"../../../../Lab6_vivado.srcs/sources_1/new/LUI.v" \
 "../../../../../Modules/src/Memory.v" \
 "../../../../../Modules/src/PC.v" \
 "../../../../../Modules/src/control.v" \
@@ -14,7 +15,7 @@ verilog xil_defaultlib  \
 "../../../../../Modules/src/nbit_register_file.v" \
 "../../../../../Modules/src/shift_left_2.v" \
 "../../../../../Modules/src/sign_extend.v" \
-"../../../../Lab6_vivado.srcs/sim_1/new/BNE_tb.v" \
+"../../../../Lab6_vivado.srcs/sim_1/new/LUI_tb.v" \
 
 # compile glbl module
 verilog xil_defaultlib "glbl.v"

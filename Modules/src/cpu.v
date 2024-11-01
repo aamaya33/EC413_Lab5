@@ -56,16 +56,18 @@ module cpu(
 	 wire MemWrite;
 	 wire RegWrite;
 	 wire jump; 
-    control Control(instruction [31:26], ALUOp, MemRead, MemtoReg, RegDst, Branch, BNE, ALUSrc, MemWrite, RegWrite, jump); 
+	 wire lui;
+    control Control(instruction [31:26], ALUOp, MemRead, MemtoReg, RegDst, Branch, BNE, ALUSrc, MemWrite, RegWrite, jump, lui); 
 	 
 	 
 	 
 	 wire           [31:0]            write_data;
+	 wire           [31:0]            write_data2;
     wire           [4:0]             write_register;
     wire		       [31:0]            read_data_1, read_data_2;
 	 wire				 [31:0]            ALUOut, MemOut;
 	 mux #(5) Write_Reg_MUX (RegDst, instruction[20:16], instruction[15:11], write_register);
-	 nbit_register_file Register_File(write_data, read_data_1, read_data_2, instruction[25:21] , instruction[20:16], write_register, RegWrite, clk);
+	 nbit_register_file Register_File(write_data2, read_data_1, read_data_2, instruction[25:21] , instruction[20:16], write_register, RegWrite, clk);
     
 	 
 	 
@@ -89,7 +91,6 @@ module cpu(
 	 
 	 
 	 wire [31:0] PC_in;
-//	 wire [31:0] PC_Jump_mux; 
 	 PC Program_Counter(PC_out, PC_in, clk, rst);
 	 
 	 wire [31:0] PC_plus_4;
@@ -111,9 +112,14 @@ module cpu(
      J_Shift J_shift (instruction [25:0], shifted_imm);
      wire [31:0] new_jumpInstr;
      J_concat concat_j (PC_in[31:28], shifted_imm, new_jumpInstr);
-//     J_mux mux_j (new_jumpInstr, PC_in, jump, PC_jump_mux);
-     mux #(32) J_mux (jump, PC_branch_mux_out, new_jumpInstr, PC_in); //FIXME: this shit (the chosen instruction) needs to be wired back in (to PC_in) but i can't fucking do it omg i am losing my fucking mind. 
-
+     mux #(32) J_mux (jump, PC_branch_mux_out, new_jumpInstr, PC_in); 
+     
+     wire [31:0] loaded_ui; 
+     
+     LUI louie (instruction[15:0], loaded_ui);
+     mux #(32) lui_mux (lui, write_data, loaded_ui, write_data2); 
+     
+     
 	 
 	 
 	 							 
